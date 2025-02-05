@@ -33,25 +33,37 @@ namespace MyLinkedListSolution
         {
             if (index > Count || index < 0) throw new IndexOutOfRangeException();
             var newNode = new Node(value);
-            var counter = 0;
             var current = head;
             if (index == 0)
             {
                 newNode.Next = current; head = newNode;
             }
-            while (counter < index)
+            else
             {
-                if (index - 1 == counter)
+                for (int i = 0; i < index-1; i++)
                 {
-                    newNode.Next = current.Next;
-                    current.Next = newNode;
-                    counter++;
-                    continue;
+                    current= current.Next;
                 }
-                current = current.Next;
-                counter++;
+                newNode.Next = current.Next;
+                current.Next = newNode;
+
+
             }
+            
             Count++;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            var current = head;
+            for (int i = 0; i < Count; i++)
+            {
+                stringBuilder.Append(current.Value.ToString() + ",");
+                current = current.Next;
+            }
+
+            return stringBuilder.ToString();
         }
 
         public int Get(int index)

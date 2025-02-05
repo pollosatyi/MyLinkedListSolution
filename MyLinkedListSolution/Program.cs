@@ -9,7 +9,7 @@
             myLinkedList.Add(20);
             myLinkedList.Add(30);
             myLinkedList.Add(3, 40);
-            Console.WriteLine(myLinkedList[3]);
+            Console.WriteLine(myLinkedList);
         }
     }
 }
